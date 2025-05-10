@@ -19,7 +19,6 @@ In your project’s `.devcontainer/devcontainer.json`, reference the image:
   "name": "my-flutter-project",
   "image": "ghcr.io/YOUR_GITHUB_USERNAME/flutter-devcontainer:latest",
   "workspaceFolder": "/workspace",
-  ...
 }
 ```
 
