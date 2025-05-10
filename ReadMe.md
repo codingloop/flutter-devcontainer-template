@@ -29,3 +29,9 @@ In your project’s `.devcontainer/devcontainer.json`, reference the image:
 - Firebase CLI
 - Node.js
 - OpenJDK 17
+
+
+```
+git tag v1.0.0
+git push origin v1.0.0
+```
