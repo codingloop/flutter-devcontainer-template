@@ -1,0 +1,19 @@
+{
+    "name": "flutter-dev",
+    "image": "ghcr.io/codingloop/flutter-devcontainer:latest",
+    "workspaceFolder": "/workspace",
+    "runArgs": [
+      "--init",
+      "--privileged"
+    ],
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "dart-code.flutter",
+          "dart-code.dart-code"
+        ]
+      }
+    },
+    "features": {},
+    "updateContentCommand": "flutter pub get"
+  }
