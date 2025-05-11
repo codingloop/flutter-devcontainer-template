@@ -1,8 +1,8 @@
 # Dockerfile for reusable Flutter + Android SDK development container
 FROM debian:stable-slim
 
-# Install essential tools and Android/Flutter dependencies
-RUN apt-get update && apt-get install -y \
+# Install essential tools and dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
     wget \
     curl \
     git \
@@ -36,10 +36,8 @@ RUN mkdir -p $ANDROID_HOME/cmdline-tools \
  && wget -q https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip -O /tmp/cmdline.zip \
  && unzip -q /tmp/cmdline.zip -d $ANDROID_HOME/cmdline-tools \
  && mv $ANDROID_HOME/cmdline-tools/cmdline-tools $ANDROID_HOME/cmdline-tools/latest \
- && rm /tmp/cmdline.zip
-
-# Accept licenses and install SDK components
-RUN yes | sdkmanager --licenses \
+ && rm /tmp/cmdline.zip \
+ && yes | sdkmanager --licenses \
  && sdkmanager \
      "platform-tools" \
      "platforms;android-33" \
@@ -48,7 +46,7 @@ RUN yes | sdkmanager --licenses \
  && chown -R dev:dev $ANDROID_HOME
 
 # Install Flutter SDK
-RUN wget -q https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.24.5-stable.tar.xz -O /tmp/flutter.tar.xz \
+RUN wget -q https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.29.3-stable.tar.xz -O /tmp/flutter.tar.xz \
  && mkdir -p $FLUTTER_HOME \
  && tar -xJf /tmp/flutter.tar.xz -C $FLUTTER_HOME --strip-components=1 \
  && rm /tmp/flutter.tar.xz \
@@ -57,9 +55,7 @@ RUN wget -q https://storage.googleapis.com/flutter_infra_release/releases/stable
 USER dev
 
 # Setup Flutter
-RUN flutter upgrade \
- && flutter config --no-analytics \
- && flutter precache --android
+RUN flutter config --no-analytics && flutter precache --android
 
-WORKDIR /workspace
+WORKDIR /workspaces
 CMD ["bash"]

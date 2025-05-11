@@ -1,19 +1,20 @@
 {
-    "name": "flutter-dev",
-    "image": "ghcr.io/codingloop/flutter-devcontainer:latest",
-    "workspaceFolder": "/workspace",
-    "runArgs": [
-      "--init",
-      "--privileged"
-    ],
-    "customizations": {
-      "vscode": {
-        "extensions": [
-          "dart-code.flutter",
-          "dart-code.dart-code"
-        ]
+  "name": "flutter-dev",
+  "image": "ghcr.io/codingloop/flutter-devcontainer:latest",
+  "mounts": [
+    "source=${localEnv:USERPROFILE}/.android/debug.keystore,target=/home/dev/.android/debug.keystore,type=bind,readonly"
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dart-code.flutter",
+        "dart-code.dart-code"
+      ],
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
       }
-    },
-    "features": {},
-    "updateContentCommand": "flutter pub get"
-  }
+    }
+  },
+  "updateContentCommand": "flutter pub get",
+  "features": {}
+}
