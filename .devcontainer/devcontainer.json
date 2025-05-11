@@ -16,5 +16,11 @@
     }
   },
   "updateContentCommand": "flutter pub get",
-  "features": {}
+"features": {
+     "./features/android-sdk-packages": {
+    "buildToolsVersion": "32.0.0",
+    "platformVersion": "android-32",
+    "ndkVersion": "27.1.0"
+  }
+  }
 }

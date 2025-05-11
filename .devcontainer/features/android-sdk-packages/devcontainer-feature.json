@@ -1,0 +1,23 @@
+{
+  "id": "android-sdk",
+  "version": "1.0.0",
+  "name": "Android SDK",
+  "description": "Installs Android SDK components including build tools, platforms, and NDK.",
+  "options": {
+    "buildToolsVersions": {
+      "type": "string",
+      "default": "33.0.0",
+      "description": "Comma-separated list of Android build tools versions to install."
+    },
+    "platformVersions": {
+      "type": "string",
+      "default": "android-33",
+      "description": "Comma-separated list of Android platform versions to install."
+    },
+    "ndkVersions": {
+      "type": "string",
+      "default": "28.1.13356709",
+      "description": "Comma-separated list of Android NDK versions to install."
+    }
+  }
+}

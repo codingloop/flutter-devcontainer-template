@@ -42,7 +42,7 @@ RUN mkdir -p $ANDROID_HOME/cmdline-tools \
      "platform-tools" \
      "platforms;android-33" \
      "build-tools;33.0.0" \
-     "ndk;26.3.11579264" \
+     "ndk;28.1.13356709" \
  && chown -R dev:dev $ANDROID_HOME
 
 # Install Flutter SDK
