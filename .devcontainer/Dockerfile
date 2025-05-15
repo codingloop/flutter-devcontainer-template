@@ -11,6 +11,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     xz-utils \
     openjdk-17-jdk \
     build-essential \
+    openssh-server \
+    vim \
     sudo \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
@@ -40,10 +42,12 @@ RUN mkdir -p $ANDROID_HOME/cmdline-tools \
  && yes | sdkmanager --licenses \
  && sdkmanager \
      "platform-tools" \
-     "platforms;android-33" \
-     "build-tools;33.0.0" \
+     "platforms;android-34" \
+     "build-tools;34.0.0" \
      "ndk;28.1.13356709" \
  && chown -R dev:dev $ANDROID_HOME
+ && mkdir /home/dev/.android \
+ && chown -R dev:dev /home/dev/.android
 
 # Install Flutter SDK
 RUN wget -q https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.29.3-stable.tar.xz -O /tmp/flutter.tar.xz \

@@ -2,7 +2,8 @@
   "name": "flutter-dev",
   "image": "ghcr.io/codingloop/flutter-devcontainer:latest",
   "mounts": [
-    "source=${localEnv:USERPROFILE}/.android/debug.keystore,target=/home/dev/.android/debug.keystore,type=bind,readonly"
+    "source=${localEnv:USERPROFILE}/.android/debug.keystore,target=/home/dev/.android/debug.keystore,type=bind,readonly",
+    "source=${localEnv:USERPROFILE}/.ssh,target=/home/dev/.ssh,type=bind,readonly"
   ],
   "customizations": {
     "vscode": {
