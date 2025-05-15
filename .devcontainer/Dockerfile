@@ -45,7 +45,7 @@ RUN mkdir -p $ANDROID_HOME/cmdline-tools \
      "platforms;android-34" \
      "build-tools;34.0.0" \
      "ndk;28.1.13356709" \
- && chown -R dev:dev $ANDROID_HOME
+ && chown -R dev:dev $ANDROID_HOME \
  && mkdir /home/dev/.android \
  && chown -R dev:dev /home/dev/.android
 
