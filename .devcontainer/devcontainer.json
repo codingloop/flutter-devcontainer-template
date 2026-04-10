@@ -19,9 +19,9 @@
   "updateContentCommand": "flutter pub get",
 "features": {
      "./features/android-sdk-packages": {
-    "buildToolsVersion": "32.0.0",
-    "platformVersion": "android-32",
-    "ndkVersion": "27.1.0"
+    "buildToolsVersions": "35.0.0",
+    "platformVersions": "android-35",
+    "ndkVersions": "28.1.13356709"
   }
   }
 }

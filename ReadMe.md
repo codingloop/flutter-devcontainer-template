@@ -23,8 +23,9 @@ In your project’s `.devcontainer/devcontainer.json`, reference the image:
 ```
 
 ## Included Tools
-- Flutter SDK
-- Android SDK + NDK
+- Flutter 3.41.6 (stable)
+- Android SDK Platform 35 (Android 15) + Build-Tools 35.0.0
+- NDK 28.1.13356709
 - Firebase CLI
-- Node.js
-- OpenJDK 17
+- Node.js 22 LTS
+- OpenJDK 21

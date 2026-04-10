@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     unzip \
     zip \
     xz-utils \
-    openjdk-17-jdk \
+    openjdk-21-jdk \
     build-essential \
     openssh-server \
     vim \
@@ -24,7 +24,7 @@ RUN useradd -ms /bin/bash dev \
 # Set environment variables
 ENV ANDROID_HOME=/opt/android-sdk
 ENV FLUTTER_HOME=/opt/flutter
-ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+ENV JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64
 ENV PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$FLUTTER_HOME/bin:$JAVA_HOME/bin:$PATH
 
 # Install Node.js & Firebase CLI
@@ -42,15 +42,15 @@ RUN mkdir -p $ANDROID_HOME/cmdline-tools \
  && yes | sdkmanager --licenses \
  && sdkmanager \
      "platform-tools" \
-     "platforms;android-34" \
-     "build-tools;34.0.0" \
+     "platforms;android-35" \
+     "build-tools;35.0.0" \
      "ndk;28.1.13356709" \
  && chown -R dev:dev $ANDROID_HOME \
  && mkdir /home/dev/.android \
  && chown -R dev:dev /home/dev/.android
 
 # Install Flutter SDK
-RUN wget -q https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.29.3-stable.tar.xz -O /tmp/flutter.tar.xz \
+RUN wget -q https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.41.6-stable.tar.xz -O /tmp/flutter.tar.xz \
  && mkdir -p $FLUTTER_HOME \
  && tar -xJf /tmp/flutter.tar.xz -C $FLUTTER_HOME --strip-components=1 \
  && rm /tmp/flutter.tar.xz \
